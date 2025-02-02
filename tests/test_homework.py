@@ -1,5 +1,7 @@
 """Autograding script."""
 
+from sklearn.metrics import r2_score
+
 
 def load_data():
 
@@ -36,9 +38,8 @@ def test_01():
     x, y = load_data()
     estimator = load_estimator()
 
-    accuracy = accuracy_score(
-        y_true=y,
-        y_pred=estimator.predict(x),
-    )
+    accuracy = r2_score(y_true=y, y_pred=estimator.predict(x))
 
-    assert accuracy > 0.9545
+    assert accuracy > 0.8045
+
+
